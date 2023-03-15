@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -54,11 +56,20 @@ public class Vector {
         System.out.println(magnitude() + "[" + angle() + "]");
     }
     
-    Vector add(Vector v) {
-        return new Vector(x + v.x,y + v.y);
+    void read() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter x: ");
+        x = input.nextDouble();
+        System.out.println("Enter y: ");
+        y = input.nextDouble();
+        input.close();
     }
     
-    Vector sub(Vector v) {
-        return new Vector(x - v.x, y - v.y);
+    static Vector add(Vector a, Vector b) {
+        return new Vector(a.x + b.x, a.y + b.y);
+    }
+    
+    static Vector sub(Vector a, Vector b) {
+        return new Vector(a.x - b.x, a.y - b.y);
     }
 }
