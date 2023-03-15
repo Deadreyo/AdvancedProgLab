@@ -56,6 +56,7 @@ public class Vector {
         System.out.println(magnitude() + "[" + angle() + "]");
     }
     
+    // included in lab 3
     void read() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter x: ");
@@ -65,10 +66,12 @@ public class Vector {
         input.close();
     }
     
+    // included in lab 3
     static Vector add(Vector a, Vector b) {
         return new Vector(a.x + b.x, a.y + b.y);
     }
     
+    // included in lab 3
     static Vector sub(Vector a, Vector b) {
         return new Vector(a.x - b.x, a.y - b.y);
     }
