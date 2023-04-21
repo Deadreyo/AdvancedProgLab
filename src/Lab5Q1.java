@@ -1,4 +1,4 @@
-public class Lab5Q1Mistakes {
+public class Lab5Q1 {
     public static void main(String[] args) {
         A[] ps = new A[4];
         // ps[0] = new A(); // abstract class. cant instantiate
