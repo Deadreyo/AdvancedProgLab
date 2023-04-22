@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javafx.geometry.Point2D;
 
@@ -13,6 +14,16 @@ public class GeometricShapes {
             canvas.addShape(new Ellipse(new Point2D(6, 6), 4, 3));
             canvas.drawAll();
             canvas.getShape(new Point2D(3, 3)).draw();
+
+            Diamond diamond = new Diamond(new Point2D(0, 0), 5, 7);
+            Diamond diamond2 = new Diamond(new Point2D(5, 5), 3, 2);
+            Diamond diamond3 = new Diamond(new Point2D(1, 1), 6, 8);
+            Moveable[] diamonds = {diamond, diamond2, diamond3};
+            Arrays.sort(diamonds);
+            for (Moveable d : diamonds) {
+                d.move(3, 3);
+                ((Diamond)d).draw();
+            }
         }
     
 }
@@ -155,4 +166,40 @@ class Canvas {
         }
     }
 
+}
+
+interface Moveable {
+    void move(double dx, double dy);
+}
+
+class Diamond extends Shape implements Moveable, Comparable<Diamond> {
+    
+        public Diamond(Point2D start, double length, double width) {
+            super(start, length, width);
+        }
+    
+        @Override
+        public void draw() {
+            System.out.println("--- DIAMOND ---");
+            System.out.println("start: " + getStart().getX() + ", " + getStart().getY());
+            System.out.println("length: " + getLength());
+            System.out.println("width: " + getWidth());
+        }
+    
+        @Override
+        public void move(double dx, double dy) {
+            setStart(new Point2D(getStart().getX() + dx, getStart().getY() + dy));
+        }
+
+        @Override
+        public int compareTo(Diamond o) {
+            if(getStart().getX() > o.getStart().getX()) {
+                return 1;
+            } else if(getStart().getX() < o.getStart().getX()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+        
 }
