@@ -11,7 +11,7 @@ public class GeometricShapes {
     
 }
 
-abstract class GeometricShape {
+abstract class Shape {
     private Point2D start;
     final public Point2D getStart() {
         return start;
@@ -21,18 +21,18 @@ abstract class GeometricShape {
         this.start = start;
     }
 
-    GeometricShape(Point2D start) {
+    Shape(Point2D start) {
         this.start = start;
     }
 
-    GeometricShape(double x, double y) {
+    Shape(double x, double y) {
         start = new Point2D(x, y);
     }
 
     public abstract void draw();
 }
 
-class Line extends GeometricShape {
+class Line extends Shape {
 
     private Point2D start;
     private Point2D end;
@@ -68,7 +68,7 @@ class Line extends GeometricShape {
     
 }
 
-class Rectangle extends GeometricShape {
+class Rectangle extends Shape {
 
     private double length;
     public double getLength() {
@@ -105,7 +105,7 @@ class Rectangle extends GeometricShape {
     
 }
 
-class Ellipse extends GeometricShape {
+class Ellipse extends Shape {
     private double length;
     public double getLength() {
         return length;
